@@ -2,14 +2,11 @@ public class EmpWageBuilder {
 	
 	public static final int IS_FULL_TIME =1;
 	public static final int IS_PART_TIME =2;
-	public static final int EMP_RATE_PER_HOUR = 20;
-	public static final int NUM_OF_WORKING_DAYS = 20;
-	public static final int MAX_HRS_IN_MONTH = 100;
 	
-	public static int computeEmpWAGE()
+	public static int computeEmpWAGE(String company, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH)
 	{
 		int empHrs=0;
-		int empWage=0;
+		//int empWage=0;
 		int totalEmpHrs=0;
 		int totalWorkingDays=0;
 		//int totalMonthlyEmpWage=0;
@@ -33,18 +30,18 @@ public class EmpWageBuilder {
 					break;
 			}
 			totalEmpHrs+=empHrs;
-			empWage=empHrs*EMP_RATE_PER_HOUR;
-			//totalMonthlyEmpWage+=empWage;
 			System.out.println("Day = " +totalWorkingDays+ " Employee Hour = " +empHrs);
 		}
 		int totalEmpWage=totalEmpHrs*EMP_RATE_PER_HOUR;
-		System.out.println("Total Employee wage = " +totalEmpWage);
-		//System.out.println("Total Monthly Wage = " +totalMonthlyEmpWage);
+		System.out.println("Total Employee wage for company = "+company+" is = "+totalEmpWage);
 		return totalEmpWage;
 	}
 
+	
 	public static void main(String[] args) {
 
-		computeEmpWAGE();
+		computeEmpWAGE("Dmart",20,20,100);
+		computeEmpWAGE("Mahindra",40,10,200);
+		computeEmpWAGE("Accenture",20,100,50);
 	}
 }
